@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="hvt_watermark">@drawable/horizonsdk_watermark</drawable>
+    <item name="hvt_watermark_scale" format="float" type="dimen">3.0</item>
+    <item name="hvt_watermark_opacity" format="float" type="dimen">0.75</item>
+</resources>

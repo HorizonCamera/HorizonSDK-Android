@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context="com.hvt.petrakeas.simpleapp.MainActivity">
+
+    <!-- HVTView must be at the bottom of the view hierarchy-->
+    <com.hvt.horizonSDK.HVTView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/camera_preview">
+    </com.hvt.horizonSDK.HVTView>
+
+    <!-- Top Buttons -->
+    <LinearLayout
+        android:id="@+id/top_button_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/crop_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Crop"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:clipToPadding="false"
+                android:clipChildren="false"/>
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/flip_camera_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Flip"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:clipToPadding="false"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/flash_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Flash off"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:clipToPadding="false"/>
+    </LinearLayout>
+
+    <!-- Bottom Buttons -->
+    <LinearLayout
+        android:id="@+id/bottom_button_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/rec_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Rec"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:clipToPadding="false"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/photo_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Photo"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:clipToPadding="false"/>
+        </LinearLayout>
+
+
+</RelativeLayout>

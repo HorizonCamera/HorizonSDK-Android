@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Javadoc API documentation for Horizon SDK." />
+
+<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+<title>
+
+  Package Index
+
+
+| Horizon SDK
+
+</title>
+<link href="./../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="./../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="./../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="./../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="./../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="./../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("./", "./../assets/");
+</script>
+<script src="./../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="./../assets/navtree_data.js" type="text/javascript"></script>
+<script src="./../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="gc-documentation">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Horizon SDK</span>
+    
+    </div>
+    <div id="headerRight">
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, './')"
+                      onkeyup="return search_changed(event, false, './')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="./packages.html" class="selected" >Package Index</a> | 
+                <a href="./classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="./com/hvt/horizonSDK/package-summary.html">com.hvt.horizonSDK</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+              <script>
+                /*addLoadEvent(maxPackageHeight);*/
+              </script>
+              <p style="padding:10px">Select a package to view its members</p><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="./packages.html" class="selected" >Package Index</a> | 
+            <a href="./classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("./");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="jd-header">
+<h1>Package Index</h1>
+</div>
+
+<div id="jd-content">
+
+<div class="jd-descr">
+<p><p><img src="../assets/images/horizonsdk-logo.png" alt="Horizon logo"></p>
+<p>Welcome to the Horizon SDK Documentation guide.</p>
+<p>Horizon SDK provides an easy to use library for developers who want to add video recording capabilities to their app.</p>
+<p>You can check out the provided sample app.</p>
+<p>Horizon SDK requires Android 4.3+ (API 18+).</p>
+<h2><a id="Requirements_10"></a>Requirements</h2>
+<p>Horizon SDK for Android, comes as an <a href="http://tools.android.com/tech-docs/new-build-system/aar-format"><em>aar</em></a> library that can be used by Android Studio. You can open the aar file as a <em>zip</em> file to observe its contents. The aar package contains:</p>
+<ul>
+<li>A jar file, which is the binary version of the library.</li>
+<li>The resources that Horizon SDK needs.</li>
+<li>A <strong>ProGuard</strong> configuration file that will be used for the library, if you use ProGuard in your project.</li>
+<li>An <code>Android.Manifest</code> that will be merged with your app’s manifest.</li>
+</ul>
+<p>Horizon’s Android.Manifest requires the following permissions, so that you don’t have to require them again in your Manifest:</p>
+<ul>
+<li><code>android.permission.WRITE_EXTERNAL_STORAGE</code></li>
+<li><code>android.permission.CAMERA</code></li>
+<li><code>android.permission.RECORD_AUDIO</code></li>
+</ul>
+<p><strong>Note:</strong> if your <code>targetSdkVersion</code> is <code>23</code>, you will have to <a href="http://developer.android.com/training/permissions/requesting.html">request permissions at runtime</a>.</p>
+<p>The manifest also requires the following features from a device:</p>
+<ul>
+<li><code>android.hardware.camera</code></li>
+<li><code>android:glEsVersion=&quot;0x00020000&quot;</code></li>
+</ul>
+<p>Horizon’s <code>minSdkVersion</code> is <code>18</code>. You can’t set your app’s minSdkVersion lower than <strong>18</strong> .</p>
+<h2><a id="Installation_33"></a>Installation</h2>
+<p>First, add the following entry in the repositories section of your project’s <code>build.gradle</code>:</p>
+<pre><code>allprojects {
+    repositories {
+        ....
+        flatDir {
+            dirs &quot;${rootDir}/libs&quot;
+        }
+    }
+}
+</code></pre>
+<p>Copy <em>horizonsdk.aar</em> in the <code>libs</code> folder relative your project’s root directory.</p>
+<p>Next, add the following dependencies in your app module’s <code>build.gradle</code>:</p>
+<pre><code>...
+dependencies {
+    ...
+    // HorizonSDK dependencies
+    compile 'com.google.guava:guava:19.0'
+    compile 'commons-io:commons-io:2.5'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile(name: 'horizonsdk', ext: 'aar')
+}
+</code></pre>
+<p>Also, add the following <em>packagingOptions</em>:</p>
+<pre><code>android {
+   ...
+    packagingOptions {
+        ...
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+</code></pre>
+<p>Now, you are good to go! For more details, you can check out the <em>build.gradle</em> files of the sample app.</p>
+<h2><a id="Quick_Start_70"></a>Quick Start</h2>
+<h3><a id="Initialization_72"></a>Initialization</h3>
+<p>Ensure you initialize the SDK upon application launch. For most applications, this can be done in <code>onCreate()</code> of your <code>Application</code> class.</p>
+<p>The example below contains a placeholder API key, so after placing the code be sure to replace it with your own.</p>
+<pre><code>HorizonSDK.init(getApplicationContext(), &quot;PLACEHOLDER API KEY&quot;);
+</code></pre>
+<p>Create an <code><a href="./com/hvt/horizonSDK/HVTCamera.html">HVTCamera</a></code> object. This can be done in <code>onCreate()</code> of your activity.</p>
+<pre><code>mHVTCamera = new HVTCamera(getApplicationContext());
+</code></pre>
+<p>You can also implement the <code><a href="./com/hvt/horizonSDK/HVTCameraListener.html">HVTCameraListener</a></code> interface in order to be notified about the running state, recording and photo capturing status of HVTCamera.</p>
+<pre><code>mHVTCamera.setListener(new HVTCameraListener() {
+        ...
+});
+</code></pre>
+<p>Set the orientation of your activity.</p>
+<pre><code>int activityRotation = getWindowManager().getDefaultDisplay().getRotation();
+mHVTCamera.setScreenRotation(activityRotation);
+</code></pre>
+<p>If your app supports multiple orientations, follow the instructions provided in <code><a href="./com/hvt/horizonSDK/HVTCamera.html#setScreenRotation(int)">setScreenRotation(int)</a></code>.</p>
+<h3><a id="Select_Camera_and_Size_97"></a>Select Camera and Size</h3>
+<p>You can use <code><a href="./com/hvt/horizonSDK/CameraHelper.html">CameraHelper</a></code> to learn the number of available cameras in the device and their video and photo resolution. You can set the one you want to HVTCamera:</p>
+<pre><code>int facing = mCameraHelper.hasCamera(Camera.CameraInfo.CAMERA_FACING_BACK) ?
+            Camera.CameraInfo.CAMERA_FACING_BACK : Camera.CameraInfo.CAMERA_FACING_FRONT;
+Size[] sizes = mCameraHelper.getDefaultVideoAndPhotoSize(facing);  // helper method to choose the default size
+mHVTCamera.setCamera(facing, sizes[0], sizes[1]);
+</code></pre>
+<h3><a id="Video_Preview_106"></a>Video Preview</h3>
+<p>If you want to display the video preview, you can attach an <code><a href="./com/hvt/horizonSDK/HVTView.html">HVTView</a></code>:</p>
+<pre><code>mCameraPreview = (HVTView) findViewById(R.id.camera_preview);
+mHVTCamera.attachPreviewView(mCameraPreview);
+</code></pre>
+<p>In the previous code block, HVTView’s id in the activity’s layout is <code>R.id.camera_preview</code>. Alternatively, HVTView could be created programmaticaly.</p>
+<h3><a id="Running_115"></a>Running</h3>
+<p>Open the camera. This can be done  in <code>onResume</code> of your activity.</p>
+<pre><code>mHVTCamera.startRunning();
+</code></pre>
+<p>When HVTCamera has started running, your listener’s <code><a href="./com/hvt/horizonSDK/HVTCameraListener.html#onStartedRunning(android.hardware.Camera.Parameters, int)">onStartedRunning()</a></code> is called. You can now start recording if you want.</p>
+<h3><a id="Video_recording_123"></a>Video recording</h3>
+<p>First, we need to create an <code><a href="./com/hvt/horizonSDK/HVTCamcorderProfile.html">HVTCamcorderProfile</a></code> that will define the movie settings such as audio/video bitrate, audio settings etc. The video size should match the HVTCamera’s output movie size.</p>
+<pre><code>Size size = mHVTCamera.getOutputMovieSize();
+HVTCamcorderProfile recordingProfile = new HVTCamcorderProfile(size.getWidth(), size.getHeight()); // helper method to create a profile
+</code></pre>
+<p>Provide the output File and start recording:</p>
+<pre><code>mHVTCamera.startRecording(mVideoFile, recordingProfile);
+</code></pre>
+<p>When you want to stop recording, call:</p>
+<pre><code>mHVTCamera.stopRecording();
+</code></pre>
+<p>When recording has finished, your listener’s <code><a href="./com/hvt/horizonSDK/HVTCameraListener.html#onRecordingFinished(java.io.File, boolean)">onRecordingFinished()</a></code> will be called.</p>
+<p><strong>Note:</strong> You can find in depth details on when you can <code><a href="./com/hvt/horizonSDK/HVTCamera.html#startRecording(java.io.File, com.hvt.horizonSDK.HVTCamcorderProfile)">start</a></code> or <code><a href="./com/hvt/horizonSDK/HVTCamera.html#stopRecording()">stop</a></code> recording in the documentation and in the sample app.</p>
+<h3><a id="Stop_Running_141"></a>Stop Running</h3>
+<p>Stop the camera. This can be called in <code>onPause</code> of your activity.</p>
+<pre><code>mHVTCamera.stopRecording();
+</code></pre>
+<p>You can start and stop HVTCamera multiple times. If you don’t plan on using it again, release it:</p>
+<pre><code>mHVTCamera.destroy();
+mHVTCamera = null;
+</code></pre>
+<p>This can be done in your activity’s <code>onDestroy()</code>.</p>
+<p>In this guide, we created, started, stopped and released HVTCamera in accordance to the activity’s <code>onCreate()</code>, <code>onResume()</code>, <code>onPause()</code> and <code>onDestroy()</code>. However, HVTCamera can run independently to an Activity’s lifecycle. It can even record while the app is in the background. In such a scenario, it would be best to create a service to avoid Android killing your app while it’s in the background.</p>
+<h2><a id="Documentation_156"></a>Documentation</h2>
+<p>For in depth details and optmization tips, please read the documentation. You can start with the following classes:</p>
+<ul>
+<li><code><a href="./com/hvt/horizonSDK/HorizonSDK.html">HorizonSDK</a></code></li>
+<li><code><a href="./com/hvt/horizonSDK/HVTCamera.html">HVTCamera</a></code></li>
+<li><code><a href="./com/hvt/horizonSDK/HVTView.html">HVTView</a></code></li>
+<li><code><a href="./com/hvt/horizonSDK/CameraHelper.html">CameraHelper</a></code></li>
+</ul>
+<p>Also, read the comments of the sample app that can be found in the <code>Android.Manifest</code>, the Java classes and the resource files (<code>styles.xml</code>, <code>horizon_sdk_customization.xml</code>, <code>activity_main.xml</code>).</p></p>
+</div>
+
+
+<table class="jd-sumtable">
+
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol">
+  <a href="./com/hvt/horizonSDK/package-summary.html">com.hvt.horizonSDK</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+</table>
+
+<div id="footer">
+Generated by <a href="http://code.google.com/p/doclava/">Doclava</a>.
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize doclava-developer-docs.js */
+</script>
+
+</body>
+</html>
