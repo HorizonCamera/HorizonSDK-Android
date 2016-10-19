@@ -1331,6 +1331,17 @@
  visibility="public"
 >
 </method>
+<method name="getCropRegionTintColor"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="getFillMode"
  return="com.hvt.horizonSDK.HVTView.FillMode"
  abstract="false"
@@ -1385,6 +1396,19 @@
  deprecated="not deprecated"
  visibility="public"
 >
+</method>
+<method name="setCropRegionTintColor"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="color" type="int">
+</parameter>
 </method>
 <method name="setDoubleTapToChangeFillMode"
  return="void"

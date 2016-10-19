@@ -1019,6 +1019,12 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>The scale speed will be slow. This slows down the zoom effect and produces a
  smoother result.
+
+ <p>A low-pass filter is used internally to smoothen out the change of scale. You can change
+ its frequency by overriding the following value:
+  <pre><code>&lt;item name="hvt_scale_filter_frequency" format="float" type="dimen"&gt;1.8&lt;/item&gt;  </code></pre>
+ </p>
+ Higher values provide smoother result.
 </p></div>
 
     
