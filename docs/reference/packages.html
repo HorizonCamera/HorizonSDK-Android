@@ -199,7 +199,7 @@
 <p>You can check out the provided sample app.</p>
 <p>Horizon SDK requires Android 4.3+ (API 18+).</p>
 <h2><a id="Requirements_10"></a>Requirements</h2>
-<p>Horizon SDK for Android, comes as an <a href="http://tools.android.com/tech-docs/new-build-system/aar-format"><em>aar</em></a> library that can be used by Android Studio. You can open the aar file as a <em>zip</em> file to observe its contents. The aar package contains:</p>
+<p>Horizon SDK for Android, comes as an <a href="https://sites.google.com/a/android.com/tools/tech-docs/new-build-system/aar-format"><em>aar</em></a> library that can be used by Android Studio. You can open the aar file as a <em>zip</em> file to observe its contents. The aar package contains:</p>
 <ul>
 <li>A jar file, which is the binary version of the library.</li>
 <li>The resources that Horizon SDK needs.</li>
@@ -212,7 +212,7 @@
 <li><code>android.permission.CAMERA</code></li>
 <li><code>android.permission.RECORD_AUDIO</code></li>
 </ul>
-<p><strong>Note:</strong> if your <code>targetSdkVersion</code> is <code>23</code>, you will have to <a href="http://developer.android.com/training/permissions/requesting.html">request permissions at runtime</a>.</p>
+<p><strong>Note:</strong> if your <code>targetSdkVersion</code> is <code>23</code>, you will have to <a href="https://developer.android.com/training/permissions/requesting.html">request permissions at runtime</a>.</p>
 <p>The manifest also requires the following features from a device:</p>
 <ul>
 <li><code>android.hardware.camera</code></li>
@@ -236,10 +236,10 @@
 dependencies {
     ...
     // HorizonSDK dependencies
-    compile 'com.google.guava:guava:19.0'
-    compile 'commons-io:commons-io:2.5'
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile(name: 'horizonsdk', ext: 'aar')
+    implementation 'com.google.guava:guava:23.5-android'
+    implementation 'commons-io:commons-io:2.5'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation(name: 'horizonsdk', ext: 'aar')
 }
 </code></pre>
 <p>Also, add the following <em>packagingOptions</em>:</p>

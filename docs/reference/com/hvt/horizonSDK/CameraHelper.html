@@ -336,12 +336,6 @@ Summary:
  ones returned by <code><a href="null#getSupportedVideoSizes()">getSupportedVideoSizes()</a></code>. This is because
  <code><a href="../../../com/hvt/horizonSDK/HVTCamera.html">HVTCamera</a></code> uses the preview frames to process them at real time. CameraHelper reads the
  <code><a href="null#getSupportedPreviewSizes()">supported preview sizes</a></code> instead.</p>
-
- <p>It's best to provide a cache file when creating a CameraHelper instance, so that it does not
- access the camera when loading the camera parameters. This is faster and also safer. The first
- time that the cache file is used, the camera will be opened to retreive its parameters and save
- them to the cache file for the next time.</p>
-
 </p>
 
 

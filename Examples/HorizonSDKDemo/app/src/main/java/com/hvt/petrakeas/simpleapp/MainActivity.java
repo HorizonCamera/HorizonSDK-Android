@@ -4,11 +4,17 @@
 
 package com.hvt.petrakeas.simpleapp;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.hardware.Camera;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
@@ -25,6 +31,7 @@ import com.hvt.horizonSDK.Size;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
@@ -44,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
     private File mPhotoFile;
     public static final String PARAMS_FILENAME = "cached_params";
 
+    private final String[] PERMISSIONS = {
+            Manifest.permission.CAMERA,
+            Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+    private static final int PERMISSIONS_REQ_CODE = 1;
+    private boolean mHasPermission;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +77,16 @@ public class MainActivity extends AppCompatActivity {
         int activityRotation = getWindowManager().getDefaultDisplay().getRotation();
         mHVTCamera.setScreenRotation(activityRotation);
 
+        // Configure and attach HVTView
+        mCameraPreview = (HVTView) findViewById(R.id.camera_preview);
+        mHVTCamera.attachPreviewView(mCameraPreview);
+
+//        alternateConfiguration();
+
+        checkPermission();
+    }
+
+    private void onCreatePermissionGranted() {
         // Select camera resolution
         File cachedCameraParams = new File(getFilesDir(), PARAMS_FILENAME);
         try {
@@ -76,12 +101,6 @@ public class MainActivity extends AppCompatActivity {
                 Camera.CameraInfo.CAMERA_FACING_BACK : Camera.CameraInfo.CAMERA_FACING_FRONT;
         Size[] sizes = mCameraHelper.getDefaultVideoAndPhotoSize(facing);
         mHVTCamera.setCamera(facing, sizes[0], sizes[1]);
-
-        // Configure and attach HVTView
-        mCameraPreview = (HVTView) findViewById(R.id.camera_preview);
-        mHVTCamera.attachPreviewView(mCameraPreview);
-
-//        alternateConfiguration();
 
         // Initialize UI
         initializeButtons();
@@ -225,21 +244,97 @@ public class MainActivity extends AppCompatActivity {
         mHVTCamera.setLevelerCropMode(mode);
     }
 
+    //region Permission handling
 
-    // ------------- Activity Lifecycle ------------- //
+    public static String[] getNotGrantedPermissions(Context context, String[] permissions) {
+        List<String> notGrandedpermissions = new ArrayList<>();
+        for (String permission: permissions) {
+            if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                notGrandedpermissions.add(permission);
+            }
+        }
+        return notGrandedpermissions.toArray(new String[notGrandedpermissions.size()]);
+    }
+
+    public static boolean shouldShowRequestPermissionRationale(Activity activity,
+                                                               String[] permissions) {
+        for (String permission: permissions) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void checkPermission() {
+        final String[] notGrandedPermisions = getNotGrantedPermissions(this, PERMISSIONS);
+        if (notGrandedPermisions.length != 0) {
+            mHasPermission = false;
+            // Should we show an explanation?
+            if (shouldShowRequestPermissionRationale(this, notGrandedPermisions)) {
+                // Show an explnation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+                ActivityCompat.requestPermissions(this,
+                        notGrandedPermisions,
+                        PERMISSIONS_REQ_CODE);
+
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        notGrandedPermisions,
+                        PERMISSIONS_REQ_CODE);
+            }
+        }
+        else {
+            // We've already got permission
+            mHasPermission = true;
+            onCreatePermissionGranted();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        if (requestCode == PERMISSIONS_REQ_CODE) {
+            boolean fail = false;
+            if (grantResults.length == permissions.length) {
+                for (int result : grantResults) {
+                    if (result != PackageManager.PERMISSION_GRANTED) {
+                        fail = true;
+                        break;
+                    }
+                }
+            } else {
+                fail = true;
+            }
+            if (!fail) {
+                mHasPermission = true;
+                onCreatePermissionGranted();
+            }
+        }
+    }
+
+    //endregion
+
+    //region Activity Lifecycle
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        mHVTCamera.startRunning();
+        if (mHasPermission) {
+            mHVTCamera.startRunning();
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        mHVTCamera.stopRunning();
+        if (mHasPermission) {
+            mHVTCamera.stopRunning();
+        }
     }
 
     @Override
@@ -253,19 +348,21 @@ public class MainActivity extends AppCompatActivity {
     /* If the activity can change orientation, we need to update HVTCamera so that the preview is
      * rendered correctly.
      */
-    //TODO: This will not be called when switching from landscape to reverseLandscape and vice versa. We could
-    // poll the activityRotation once per second for changes.
+    //TODO: This callback will not be called when switching from landscape to reverseLandscape and
+    // vice versa. We should poll screen rotation for changes, if we want to account for that.
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
         if (mHVTCamera != null) {
-            int activityRotation = getWindowManager().getDefaultDisplay().getRotation();
-            mHVTCamera.setScreenRotation(activityRotation);
+            int screenRotation = getWindowManager().getDefaultDisplay().getRotation();
+            mHVTCamera.setScreenRotation(screenRotation);
         }
     }
 
-    // ------------- HVTCamera Listener ------------- //
+    //endregion
+
+    //region HVTCamera Listener
     private class MyListener implements HVTCameraListener {
 
         @Override
@@ -355,4 +452,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    //endregion
 }
