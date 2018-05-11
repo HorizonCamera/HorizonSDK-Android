@@ -64,13 +64,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // We'll save photos and videos to the same file for simplicity.
-        File directory = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)
-                .getAbsolutePath() + File.separator + "HorizonSDKSample");
-        directory.mkdirs();
-        mVideoFile = new File(directory.getAbsolutePath(), "video.mp4");
-        mPhotoFile = new File(directory.getAbsolutePath(), "photo.jpeg");
-
         // Create and configure HVTCamera
         mHVTCamera = new HVTCamera(getApplicationContext());
         mHVTCamera.setListener(new MyListener());
@@ -87,6 +80,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onCreatePermissionGranted() {
+        // We'll save photos and videos to the same file for simplicity.
+        File directory = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)
+                .getAbsolutePath() + File.separator + "HorizonSDKSample");
+        directory.mkdirs();
+        mVideoFile = new File(directory.getAbsolutePath(), "video.mp4");
+        mPhotoFile = new File(directory.getAbsolutePath(), "photo.jpeg");
+
         // Select camera resolution
         File cachedCameraParams = new File(getFilesDir(), PARAMS_FILENAME);
         try {
