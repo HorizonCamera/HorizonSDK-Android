@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
     private File mVideoFile;
     private File mPhotoFile;
-    public static final String PARAMS_FILENAME = "cached_params";
 
     private final String[] PERMISSIONS = {
             Manifest.permission.CAMERA,
@@ -88,9 +87,8 @@ public class MainActivity extends AppCompatActivity {
         mPhotoFile = new File(directory.getAbsolutePath(), "photo.jpeg");
 
         // Select camera resolution
-        File cachedCameraParams = new File(getFilesDir(), PARAMS_FILENAME);
         try {
-            mCameraHelper = new CameraHelper(cachedCameraParams);
+            mCameraHelper = new CameraHelper();
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(getApplicationContext(), "Camera could not be opened", Toast.LENGTH_LONG).show();

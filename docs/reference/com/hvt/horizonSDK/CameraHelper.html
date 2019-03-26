@@ -402,9 +402,30 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/hvt/horizonSDK/CameraHelper.html#CameraHelper(java.io.File)">CameraHelper</a></span>(<a href="http://d.android.com/reference/java/io/File.html">File</a> cacheFile)
+        <span class="sympad"><a href="../../../com/hvt/horizonSDK/CameraHelper.html#CameraHelper()">CameraHelper</a></span>()
         
         <div class="jd-descrdiv">Creates a CameraHelper instance that can be used to get information about the device cameras.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/hvt/horizonSDK/CameraHelper.html#CameraHelper(java.io.File)">CameraHelper</a></span>(<a href="http://d.android.com/reference/java/io/File.html">File</a> cacheFile)
+        
+        <div class="jd-descrdiv">
+      <em>
+  This constructor is deprecated.
+      Use <code><a href="../../../com/hvt/horizonSDK/CameraHelper.html#CameraHelper()">CameraHelper()</a></code> instead</em></div>
   
   </td></tr>
 
@@ -1003,6 +1024,54 @@ From class
 
 
 
+<a id="CameraHelper()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">CameraHelper</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a CameraHelper instance that can be used to get information about the device cameras.
+
+ <p>By default, the instance opens the device cameras to retrieve the camera information. If
+ it fails to access the cameras, an IOException is thrown.
+
+ <p><strong>Note:</strong>If <code>targetSdkVersion</code> is 23 or above, you need to request
+ permission at runtime, before calling this method.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://d.android.com/reference/java/io/IOException.html">IOException</a></td>
+            <td>an exception is thrown if the instance needs to access the device cameras
+ but fails to do so
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <a id="CameraHelper(java.io.File)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -1027,14 +1096,15 @@ From class
 
       </div>
     <div class="jd-details-descr">
-      
+      <p>
+  <p class="caution">
+      <strong>
+  This constructor is deprecated.</strong><br/> Use <code><a href="../../../com/hvt/horizonSDK/CameraHelper.html#CameraHelper()">CameraHelper()</a></code> instead
+  </p>
   <div class="jd-tagdata jd-tagdescr"><p>Creates a CameraHelper instance that can be used to get information about the device cameras.
 
  <p>By default, the instance opens the device cameras to retrieve the camera information. If
- it fails to access the cameras, an IOException is thrown. If a <code>cacheFile</code> is
- provided, the instance writes all the camera information to the file. If a new instance is
- created in the future, it will use the provided <code>cacheFile</code> to get the information,
- without accessing the device cameras.</p>
+ it fails to access the cameras, an <code><a href="http://d.android.com/reference/java/io/IOException.html">IOException</a></code> is thrown.
 
  <p><strong>Note:</strong>If <code>targetSdkVersion</code> is 23 or above, you need to request
  permission at runtime, before calling this method.</p></p></div>
