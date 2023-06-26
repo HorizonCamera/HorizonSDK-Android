@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.hardware.Camera;
 import android.media.MediaScannerConnection;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import androidx.core.app.ActivityCompat;
@@ -33,6 +34,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
 @SuppressWarnings("deprecation")
 public class MainActivity extends AppCompatActivity {
 
@@ -49,11 +52,19 @@ public class MainActivity extends AppCompatActivity {
     private File mVideoFile;
     private File mPhotoFile;
 
-    private final String[] PERMISSIONS = {
-            Manifest.permission.CAMERA,
-            Manifest.permission.RECORD_AUDIO,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-    };
+    private final String[] PERMISSIONS;
+    {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
+            PERMISSIONS = new String[]{
+                    Manifest.permission.CAMERA,
+                    Manifest.permission.RECORD_AUDIO,
+                    WRITE_EXTERNAL_STORAGE};
+        } else {
+            PERMISSIONS = new String[]{
+                    Manifest.permission.CAMERA,
+                    Manifest.permission.RECORD_AUDIO};
+        }
+    }
     private static final int PERMISSIONS_REQ_CODE = 1;
     private boolean mHasPermission;
 
@@ -293,6 +304,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSIONS_REQ_CODE) {
             boolean fail = false;
             if (grantResults.length == permissions.length) {
@@ -413,6 +425,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Error saving video", Toast.LENGTH_SHORT).show();
             }
             mRecButton.setText("Rec");
+        }
+
+        @Override
+        public void onRecordedDataIncreased(long l, long l1) {
+
         }
 
         @Override

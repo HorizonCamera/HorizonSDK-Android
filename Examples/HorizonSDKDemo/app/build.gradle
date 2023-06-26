@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.hvt.petrakeas.simpleapp"
-        minSdkVersion 18
-        targetSdkVersion 30
-        versionCode 4
-        versionName "1.03"
+        minSdkVersion 19
+        targetSdkVersion 33
+        versionCode 5
+        versionName "1.04"
     }
     buildTypes {
         release {
@@ -31,11 +31,11 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 
     implementation(name: 'horizonsdk', ext: 'aar')
     // HorizonSDK dependencies
-    implementation 'com.google.guava:guava:30.1-android'
+    implementation 'com.google.guava:guava:31.1-android'
 
     testImplementation 'junit:junit:4.13.2'
 }

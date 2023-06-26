@@ -427,6 +427,24 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/hvt/horizonSDK/HVTCameraListener.html#onRecordedDataIncreased(long, long)">onRecordedDataIncreased</a></span>(long totalBytes, long totalEstimatedBytes)
+        
+        <div class="jd-descrdiv">Called when the size of the video being recorded increases.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../com/hvt/horizonSDK/HVTCameraListener.html#onRecordingFinished(java.io.File, boolean)">onRecordingFinished</a></span>(<a href="http://d.android.com/reference/java/io/File.html">File</a> file, boolean success)
         
         <div class="jd-descrdiv">Called when movie recording has finished.</div>
@@ -435,7 +453,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -453,7 +471,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -471,7 +489,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -490,7 +508,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -509,7 +527,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -527,7 +545,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -545,7 +563,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -564,7 +582,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -832,6 +850,57 @@
       <h5 class="jd-tagtitle">See Also</h5>
       <ul class="nolist"><li><code><a href="../../../com/hvt/horizonSDK/HVTCameraListener.html#onStartedRunning(android.hardware.Camera.Parameters, int)">onStartedRunning(Parameters, int)</a></code></li>
       </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="onRecordedDataIncreased(long, long)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">onRecordedDataIncreased</span>
+      <span class="normal">(long totalBytes, long totalEstimatedBytes)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when the size of the video being recorded increases.
+ <p>
+ The method is called when the size increases around 1MB since the previous call.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>totalBytes</th>
+          <td>The number of bytes written, due the audio and video streams.</td>
+        </tr>
+        <tr>
+          <th>totalEstimatedBytes</th>
+          <td>When muxing the provided audio and video stream, some extra bytes
+                            are added (around 500 bytes per second). Since we have no way of
+                            getting the exact number, we estimate them. So, this number is the
+                            bytes from the audio and video stream, plus the estimated bytes
+                            added by the muxer.
+</td>
+        </tr>
+      </table>
   </div>
 
     </div>

@@ -6,6 +6,9 @@
 <manifest package="com.hvt.petrakeas.simpleapp"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+
     <application
         android:name=".SimpleApp"
         android:allowBackup="true"
@@ -22,7 +25,8 @@
                   android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
                   android:screenOrientation="portrait"
                   android:keepScreenOn="true"
-                  android:theme="@style/CameraTheme">
+                  android:theme="@style/CameraTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

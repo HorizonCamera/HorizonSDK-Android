@@ -197,9 +197,9 @@
 <p class="has-line-data" data-line-start="2" data-line-end="3">Welcome to the Horizon SDK Documentation guide.</p>
 <p class="has-line-data" data-line-start="4" data-line-end="5">Horizon SDK provides an easy to use library for developers who want to add video recording capabilities to their app.</p>
 <p class="has-line-data" data-line-start="6" data-line-end="7">You can check out the provided sample app.</p>
-<p class="has-line-data" data-line-start="8" data-line-end="9">Horizon SDK requires Android 4.3+ (API 18+).</p>
-<h2 class="code-line" data-line-start=10 data-line-end=11><a id="Requirements_10"></a>Requirements</h2>
-<p class="has-line-data" data-line-start="12" data-line-end="13">Horizon SDK for Android, comes as an <a href="https://sites.google.com/a/android.com/tools/tech-docs/new-build-system/aar-format"><em>aar</em></a> library that can be used by Android Studio. You can open the aar file as a <em>zip</em> file to observe its contents. The aar package contains:</p>
+<p class="has-line-data" data-line-start="8" data-line-end="9">Horizon SDK requires Android 4.4 (API 19).</p>
+<h2 class="code-line" data-line-start="10" data-line-end="11"><a id="Requirements_10"></a>Requirements</h2>
+<p class="has-line-data" data-line-start="12" data-line-end="13">Horizon SDK for Android, comes as an <a href="https://tools.android.com/tech-docs/new-build-system/aar-format"><em>aar</em></a> library that can be used by Android Studio. You can open the aar file as a <em>zip</em> file to observe its contents. The aar package contains:</p>
 <ul>
 <li class="has-line-data" data-line-start="14" data-line-end="15">A jar file, which is the binary version of the library.</li>
 <li class="has-line-data" data-line-start="15" data-line-end="16">The resources that Horizon SDK needs.</li>
@@ -208,18 +208,17 @@
 </ul>
 <p class="has-line-data" data-line-start="19" data-line-end="20">Horizon’s Android.Manifest requires the following permissions, so that you don’t have to require them again in your Manifest:</p>
 <ul>
-<li class="has-line-data" data-line-start="21" data-line-end="22"><code>android.permission.WRITE_EXTERNAL_STORAGE</code></li>
-<li class="has-line-data" data-line-start="22" data-line-end="23"><code>android.permission.CAMERA</code></li>
-<li class="has-line-data" data-line-start="23" data-line-end="25"><code>android.permission.RECORD_AUDIO</code></li>
+<li class="has-line-data" data-line-start="21" data-line-end="22"><code>android.permission.CAMERA</code></li>
+<li class="has-line-data" data-line-start="22" data-line-end="24"><code>android.permission.RECORD_AUDIO</code></li>
 </ul>
-<p class="has-line-data" data-line-start="25" data-line-end="26">The manifest also requires the following features from a device:</p>
+<p class="has-line-data" data-line-start="24" data-line-end="25">The manifest also requires the following features from a device:</p>
 <ul>
-<li class="has-line-data" data-line-start="26" data-line-end="27"><code>android.hardware.camera</code></li>
-<li class="has-line-data" data-line-start="27" data-line-end="29"><code>android:glEsVersion=&quot;0x00020000&quot;</code></li>
+<li class="has-line-data" data-line-start="25" data-line-end="26"><code>android.hardware.camera</code></li>
+<li class="has-line-data" data-line-start="26" data-line-end="28"><code>android:glEsVersion=&quot;0x00020000&quot;</code></li>
 </ul>
-<p class="has-line-data" data-line-start="29" data-line-end="30">Horizon’s <code>minSdkVersion</code> is <code>18</code>. You can’t set your app’s minSdkVersion lower than <strong>18</strong> .</p>
-<h2 class="code-line" data-line-start=31 data-line-end=32><a id="Installation_31"></a>Installation</h2>
-<p class="has-line-data" data-line-start="33" data-line-end="34">First, add the following entry in the repositories section of your project’s <code>build.gradle</code>:</p>
+<p class="has-line-data" data-line-start="28" data-line-end="29">Horizon’s <code>minSdkVersion</code> is <code>19</code>. You can’t set your app’s minSdkVersion lower than <strong>19</strong> .</p>
+<h2 class="code-line" data-line-start="30" data-line-end="31"><a id="Installation_30"></a>Installation</h2>
+<p class="has-line-data" data-line-start="32" data-line-end="33">First, add the following entry in the repositories section of your project’s <code>build.gradle</code>:</p>
 <pre><code>allprojects {
     repositories {
         ....
@@ -229,17 +228,17 @@
     }
 }
 </code></pre>
-<p class="has-line-data" data-line-start="43" data-line-end="44">Copy <em>horizonsdk.aar</em> in the <code>libs</code> folder relative your project’s root directory.</p>
-<p class="has-line-data" data-line-start="45" data-line-end="46">Next, add the following dependencies in your app module’s <code>build.gradle</code>:</p>
+<p class="has-line-data" data-line-start="42" data-line-end="43">Copy <em>horizonsdk.aar</em> in the <code>libs</code> folder relative your project’s root directory.</p>
+<p class="has-line-data" data-line-start="44" data-line-end="45">Next, add the following dependencies in your app module’s <code>build.gradle</code>:</p>
 <pre><code>...
 dependencies {
     ...
     implementation(name: 'horizonsdk', ext: 'aar')
     // HorizonSDK dependencies
-    implementation 'com.google.guava:guava:30.1-android'
+    implementation 'com.google.guava:guava:31.1-android'
 }
 </code></pre>
-<p class="has-line-data" data-line-start="54" data-line-end="55">Also, add the following in your app’s <code>build.gradle</code>:</p>
+<p class="has-line-data" data-line-start="53" data-line-end="54">Also, add the following in your app’s <code>build.gradle</code>:</p>
 <pre><code>android {
    ...
    compileOptions {
@@ -254,76 +253,76 @@ dependencies {
     }
 }
 </code></pre>
-<p class="has-line-data" data-line-start="69" data-line-end="70">Now, you are good to go! For more details, you can check out the <em>build.gradle</em> files of the sample app.</p>
-<h2 class="code-line" data-line-start=71 data-line-end=72><a id="Quick_Start_71"></a>Quick Start</h2>
-<h3 class="code-line" data-line-start=73 data-line-end=74><a id="Initialization_73"></a>Initialization</h3>
-<p class="has-line-data" data-line-start="75" data-line-end="76">Ensure you initialize the SDK upon application launch. For most applications, this can be done in <code>onCreate()</code> of your <code>Application</code> class.</p>
-<p class="has-line-data" data-line-start="77" data-line-end="78">The example below contains a placeholder API key, so after placing the code be sure to replace it with your own.</p>
+<p class="has-line-data" data-line-start="68" data-line-end="69">Now, you are good to go! For more details, you can check out the <em>build.gradle</em> files of the sample app.</p>
+<h2 class="code-line" data-line-start="70" data-line-end="71"><a id="Quick_Start_70"></a>Quick Start</h2>
+<h3 class="code-line" data-line-start="72" data-line-end="73"><a id="Initialization_72"></a>Initialization</h3>
+<p class="has-line-data" data-line-start="74" data-line-end="75">Ensure you initialize the SDK upon application launch. For most applications, this can be done in <code>onCreate()</code> of your <code>Application</code> class.</p>
+<p class="has-line-data" data-line-start="76" data-line-end="77">The example below contains a placeholder API key, so after placing the code be sure to replace it with your own.</p>
 <pre><code>HorizonSDK.init(getApplicationContext(), &quot;PLACEHOLDER API KEY&quot;);
 </code></pre>
-<p class="has-line-data" data-line-start="81" data-line-end="82">Create an <code><a href="./com/hvt/horizonSDK/HVTCamera.html">HVTCamera</a></code> object. This can be done in <code>onCreate()</code> of your activity.</p>
+<p class="has-line-data" data-line-start="80" data-line-end="81">Create an <code><a href="./com/hvt/horizonSDK/HVTCamera.html">HVTCamera</a></code> object. This can be done in <code>onCreate()</code> of your activity.</p>
 <pre><code>mHVTCamera = new HVTCamera(getApplicationContext());
 </code></pre>
-<p class="has-line-data" data-line-start="85" data-line-end="86">You can also implement the <code><a href="./com/hvt/horizonSDK/HVTCameraListener.html">HVTCameraListener</a></code> interface in order to be notified about the running state, recording and photo capturing status of HVTCamera.</p>
+<p class="has-line-data" data-line-start="84" data-line-end="85">You can also implement the <code><a href="./com/hvt/horizonSDK/HVTCameraListener.html">HVTCameraListener</a></code> interface in order to be notified about the running state, recording and photo capturing status of HVTCamera.</p>
 <pre><code>mHVTCamera.setListener(new HVTCameraListener() {
         ...
 });
 </code></pre>
-<p class="has-line-data" data-line-start="91" data-line-end="92">Set the orientation of your activity.</p>
+<p class="has-line-data" data-line-start="90" data-line-end="91">Set the orientation of your activity.</p>
 <pre><code>int activityRotation = getWindowManager().getDefaultDisplay().getRotation();
 mHVTCamera.setScreenRotation(activityRotation);
 </code></pre>
-<p class="has-line-data" data-line-start="96" data-line-end="97">If your app supports multiple orientations, follow the instructions provided in <code><a href="./com/hvt/horizonSDK/HVTCamera.html#setScreenRotation(int)">setScreenRotation(int)</a></code>.</p>
-<h3 class="code-line" data-line-start=98 data-line-end=99><a id="Select_Camera_and_Size_98"></a>Select Camera and Size</h3>
-<p class="has-line-data" data-line-start="100" data-line-end="101">You can use <code><a href="./com/hvt/horizonSDK/CameraHelper.html">CameraHelper</a></code> to learn the number of available cameras in the device and their video and photo resolution. You can set the one you want to HVTCamera:</p>
+<p class="has-line-data" data-line-start="95" data-line-end="96">If your app supports multiple orientations, follow the instructions provided in <code><a href="./com/hvt/horizonSDK/HVTCamera.html#setScreenRotation(int)">setScreenRotation(int)</a></code>.</p>
+<h3 class="code-line" data-line-start="97" data-line-end="98"><a id="Select_Camera_and_Size_97"></a>Select Camera and Size</h3>
+<p class="has-line-data" data-line-start="99" data-line-end="100">You can use <code><a href="./com/hvt/horizonSDK/CameraHelper.html">CameraHelper</a></code> to learn the number of available cameras in the device and their video and photo resolution. You can set the one you want to HVTCamera:</p>
 <pre><code>int facing = mCameraHelper.hasCamera(Camera.CameraInfo.CAMERA_FACING_BACK) ?
             Camera.CameraInfo.CAMERA_FACING_BACK : Camera.CameraInfo.CAMERA_FACING_FRONT;
 Size[] sizes = mCameraHelper.getDefaultVideoAndPhotoSize(facing);  // helper method to choose the default size
 mHVTCamera.setCamera(facing, sizes[0], sizes[1]);
 </code></pre>
-<h3 class="code-line" data-line-start=107 data-line-end=108><a id="Video_Preview_107"></a>Video Preview</h3>
-<p class="has-line-data" data-line-start="109" data-line-end="110">If you want to display the video preview, you can attach an <code><a href="./com/hvt/horizonSDK/HVTView.html">HVTView</a></code>:</p>
+<h3 class="code-line" data-line-start="106" data-line-end="107"><a id="Video_Preview_106"></a>Video Preview</h3>
+<p class="has-line-data" data-line-start="108" data-line-end="109">If you want to display the video preview, you can attach an <code><a href="./com/hvt/horizonSDK/HVTView.html">HVTView</a></code>:</p>
 <pre><code>mCameraPreview = (HVTView) findViewById(R.id.camera_preview);
 mHVTCamera.attachPreviewView(mCameraPreview);
 </code></pre>
-<p class="has-line-data" data-line-start="114" data-line-end="115">In the previous code block, HVTView’s id in the activity’s layout is <code>R.id.camera_preview</code>. Alternatively, HVTView could be created programmaticaly.</p>
-<h3 class="code-line" data-line-start=116 data-line-end=117><a id="Running_116"></a>Running</h3>
-<p class="has-line-data" data-line-start="118" data-line-end="119">Open the camera. This can be done in <code>onResume</code> of your activity.</p>
+<p class="has-line-data" data-line-start="113" data-line-end="114">In the previous code block, HVTView’s id in the activity’s layout is <code>R.id.camera_preview</code>. Alternatively, HVTView could be created programmaticaly.</p>
+<h3 class="code-line" data-line-start="115" data-line-end="116"><a id="Running_115"></a>Running</h3>
+<p class="has-line-data" data-line-start="117" data-line-end="118">Open the camera. This can be done in <code>onResume</code> of your activity.</p>
 <pre><code>mHVTCamera.startRunning();
 </code></pre>
-<p class="has-line-data" data-line-start="122" data-line-end="123">When HVTCamera has started running, your listener’s <code><a href="./com/hvt/horizonSDK/HVTCameraListener.html#onStartedRunning(android.hardware.Camera.Parameters, int)">onStartedRunning()</a></code> is called. You can now start recording if you want.</p>
-<h3 class="code-line" data-line-start=124 data-line-end=125><a id="Video_recording_124"></a>Video recording</h3>
-<p class="has-line-data" data-line-start="125" data-line-end="126">First, we need to create an <code><a href="./com/hvt/horizonSDK/HVTCamcorderProfile.html">HVTCamcorderProfile</a></code> that will define the movie settings such as audio/video bitrate, audio settings etc. The video size should match the HVTCamera’s output movie size.</p>
+<p class="has-line-data" data-line-start="121" data-line-end="122">When HVTCamera has started running, your listener’s <code><a href="./com/hvt/horizonSDK/HVTCameraListener.html#onStartedRunning(android.hardware.Camera.Parameters, int)">onStartedRunning()</a></code> is called. You can now start recording if you want.</p>
+<h3 class="code-line" data-line-start="123" data-line-end="124"><a id="Video_recording_123"></a>Video recording</h3>
+<p class="has-line-data" data-line-start="124" data-line-end="125">First, we need to create an <code><a href="./com/hvt/horizonSDK/HVTCamcorderProfile.html">HVTCamcorderProfile</a></code> that will define the movie settings such as audio/video bitrate, audio settings etc. The video size should match the HVTCamera’s output movie size.</p>
 <pre><code>Size size = mHVTCamera.getOutputMovieSize();
 HVTCamcorderProfile recordingProfile = new HVTCamcorderProfile(size.getWidth(), size.getHeight()); // helper method to create a profile
 </code></pre>
-<p class="has-line-data" data-line-start="130" data-line-end="131">Provide the output File and start recording:</p>
+<p class="has-line-data" data-line-start="129" data-line-end="130">Provide the output File and start recording:</p>
 <pre><code>mHVTCamera.startRecording(mVideoFile, recordingProfile);
 </code></pre>
-<p class="has-line-data" data-line-start="134" data-line-end="135">When you want to stop recording, call:</p>
+<p class="has-line-data" data-line-start="133" data-line-end="134">When you want to stop recording, call:</p>
 <pre><code>mHVTCamera.stopRecording();
 </code></pre>
-<p class="has-line-data" data-line-start="138" data-line-end="139">When recording has finished, your listener’s <code><a href="./com/hvt/horizonSDK/HVTCameraListener.html#onRecordingFinished(java.io.File, boolean)">onRecordingFinished()</a></code> will be called.</p>
-<p class="has-line-data" data-line-start="140" data-line-end="141"><strong>Note:</strong> You can find in depth details on when you can <code><a href="./com/hvt/horizonSDK/HVTCamera.html#startRecording(java.io.File, com.hvt.horizonSDK.HVTCamcorderProfile)">start</a></code> or <code><a href="./com/hvt/horizonSDK/HVTCamera.html#stopRecording()">stop</a></code> recording in the documentation and in the sample app.</p>
-<h3 class="code-line" data-line-start=142 data-line-end=143><a id="Stop_Running_142"></a>Stop Running</h3>
-<p class="has-line-data" data-line-start="144" data-line-end="145">Stop the camera. This can be called in <code>onPause</code> of your activity.</p>
+<p class="has-line-data" data-line-start="137" data-line-end="138">When recording has finished, your listener’s <code><a href="./com/hvt/horizonSDK/HVTCameraListener.html#onRecordingFinished(java.io.File, boolean)">onRecordingFinished()</a></code> will be called.</p>
+<p class="has-line-data" data-line-start="139" data-line-end="140"><strong>Note:</strong> You can find in depth details on when you can <code><a href="./com/hvt/horizonSDK/HVTCamera.html#startRecording(java.io.File, com.hvt.horizonSDK.HVTCamcorderProfile)">start</a></code> or <code><a href="./com/hvt/horizonSDK/HVTCamera.html#stopRecording()">stop</a></code> recording in the documentation and in the sample app.</p>
+<h3 class="code-line" data-line-start="141" data-line-end="142"><a id="Stop_Running_141"></a>Stop Running</h3>
+<p class="has-line-data" data-line-start="143" data-line-end="144">Stop the camera. This can be called in <code>onPause</code> of your activity.</p>
 <pre><code>mHVTCamera.stopRecording();
 </code></pre>
-<p class="has-line-data" data-line-start="148" data-line-end="149">You can start and stop HVTCamera multiple times. If you don’t plan on using it again, release it:</p>
+<p class="has-line-data" data-line-start="147" data-line-end="148">You can start and stop HVTCamera multiple times. If you don’t plan on using it again, release it:</p>
 <pre><code>mHVTCamera.destroy();
 mHVTCamera = null;
 </code></pre>
-<p class="has-line-data" data-line-start="153" data-line-end="154">This can be done in your activity’s <code>onDestroy()</code>.</p>
-<p class="has-line-data" data-line-start="155" data-line-end="156">In this guide, we created, started, stopped and released HVTCamera in accordance to the activity’s <code>onCreate()</code>, <code>onResume()</code>, <code>onPause()</code> and <code>onDestroy()</code>. However, HVTCamera can run independently to an Activity’s lifecycle. It can even record while the app is in the background. In such a scenario, it would be best to create a service to avoid Android killing your app while it’s in the background.</p>
-<h2 class="code-line" data-line-start=157 data-line-end=158><a id="Documentation_157"></a>Documentation</h2>
-<p class="has-line-data" data-line-start="159" data-line-end="160">For in depth details and optmization tips, please read the documentation. You can start with the following classes:</p>
+<p class="has-line-data" data-line-start="152" data-line-end="153">This can be done in your activity’s <code>onDestroy()</code>.</p>
+<p class="has-line-data" data-line-start="154" data-line-end="155">In this guide, we created, started, stopped and released HVTCamera in accordance to the activity’s <code>onCreate()</code>, <code>onResume()</code>, <code>onPause()</code> and <code>onDestroy()</code>. However, HVTCamera can run independently to an Activity’s lifecycle. It can even record while the app is in the background. In such a scenario, it would be best to create a service to avoid Android killing your app while it’s in the background.</p>
+<h2 class="code-line" data-line-start="156" data-line-end="157"><a id="Documentation_156"></a>Documentation</h2>
+<p class="has-line-data" data-line-start="158" data-line-end="159">For in depth details and optmization tips, please read the documentation. You can start with the following classes:</p>
 <ul>
-<li class="has-line-data" data-line-start="161" data-line-end="162"><code><a href="./com/hvt/horizonSDK/HorizonSDK.html">HorizonSDK</a></code></li>
-<li class="has-line-data" data-line-start="162" data-line-end="163"><code><a href="./com/hvt/horizonSDK/HVTCamera.html">HVTCamera</a></code></li>
-<li class="has-line-data" data-line-start="163" data-line-end="164"><code><a href="./com/hvt/horizonSDK/HVTView.html">HVTView</a></code></li>
-<li class="has-line-data" data-line-start="164" data-line-end="166"><code><a href="./com/hvt/horizonSDK/CameraHelper.html">CameraHelper</a></code></li>
+<li class="has-line-data" data-line-start="160" data-line-end="161"><code><a href="./com/hvt/horizonSDK/HorizonSDK.html">HorizonSDK</a></code></li>
+<li class="has-line-data" data-line-start="161" data-line-end="162"><code><a href="./com/hvt/horizonSDK/HVTCamera.html">HVTCamera</a></code></li>
+<li class="has-line-data" data-line-start="162" data-line-end="163"><code><a href="./com/hvt/horizonSDK/HVTView.html">HVTView</a></code></li>
+<li class="has-line-data" data-line-start="163" data-line-end="165"><code><a href="./com/hvt/horizonSDK/CameraHelper.html">CameraHelper</a></code></li>
 </ul>
-<p class="has-line-data" data-line-start="166" data-line-end="167">Also, read the comments of the sample app that can be found in the <code>Android.Manifest</code>, the Java classes and the resource files (<code>styles.xml</code>, <code>horizon_sdk_customization.xml</code>, <code>activity_main.xml</code>).</p></p>
+<p class="has-line-data" data-line-start="165" data-line-end="166">Also, read the comments of the sample app that can be found in the <code>Android.Manifest</code>, the Java classes and the resource files (<code>styles.xml</code>, <code>horizon_sdk_customization.xml</code>, <code>activity_main.xml</code>).</p></p>
 </div>
 
 
